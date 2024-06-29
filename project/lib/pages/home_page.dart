@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import '../classes/user_profile_class.dart';
+import 'item_page.dart';
+import 'my_profile_page.dart';
+import 'register_page.dart';
+import 'translation_page.dart';
+import 'user_item_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
