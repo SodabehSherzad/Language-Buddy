@@ -65,7 +65,36 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Text(language, style: TextStyle(fontSize: 16)),
               )).toList(),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
+            Text(
+              'My Friends',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Center(
+                  child: CircleAvatar(
+                    backgroundImage: NetworkImage(widget.userProfile.imageUrl),
+                    radius: 50,
+                  ),
+                ),
+                Center(
+                  child: CircleAvatar(
+                    backgroundImage: NetworkImage(widget.userProfile.imageUrl),
+                    radius: 50,
+                  ),
+                ),
+                Center(
+                  child: CircleAvatar(
+                    backgroundImage: NetworkImage(widget.userProfile.imageUrl),
+                    radius: 50,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
             Center(
               child: ElevatedButton(
                 onPressed: () async {

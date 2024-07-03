@@ -6,6 +6,7 @@ class UserProfile {
   final List<String> languages;
   final List<String> friends;
   final String imageUrl;
+  final String role;
 
   UserProfile({
     required this.userId,
@@ -15,6 +16,7 @@ class UserProfile {
     required this.languages,
     required this.friends,
     required this.imageUrl,
+    required this.role,
   });
 
   void updateProfile({

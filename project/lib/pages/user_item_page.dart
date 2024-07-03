@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../classes/user_profile_class.dart';
-import 'chat_page.dart';
 import 'user_profile_page.dart';
-
-// Assuming UserProfile and other imports are already included here
 
 class UserListPage extends StatefulWidget {
   @override
@@ -18,9 +14,10 @@ class _UserListPageState extends State<UserListPage> {
       name: 'John Doe',
       address: '123 Main St, City',
       description: 'I am a language enthusiast.',
-      languages: ['English', 'German', 'French'],
+      languages: ['English', 'German'],
       friends: ['Alice', 'Bob', 'Charlie'],
-      imageUrl: 'assets/user.webp', // Adjusted the image asset path
+      imageUrl: 'assets/user.webp',
+      role: 'Student',
     ),
     UserProfile(
       userId: '124',
@@ -29,7 +26,39 @@ class _UserListPageState extends State<UserListPage> {
       description: 'I love learning new languages.',
       languages: ['Spanish', 'Italian'],
       friends: ['David', 'Eve'],
-      imageUrl: 'assets/user.webp', // Adjusted the image asset path
+      imageUrl: 'assets/user.webp',
+      role: 'Teacher',
+    ),
+    // Add more users for diversity
+    UserProfile(
+      userId: '125',
+      name: 'Alice Johnson',
+      address: '789 Maple St, Village',
+      description: 'Passionate about teaching languages.',
+      languages: ['French', 'Japanese'],
+      friends: ['Frank', 'Grace'],
+      imageUrl: 'assets/user.webp',
+      role: 'Teacher',
+    ),
+    UserProfile(
+      userId: '126',
+      name: 'Bob Brown',
+      address: '101 Pine St, Hamlet',
+      description: 'Enjoys learning new cultures.',
+      languages: ['Chinese', 'Korean'],
+      friends: ['Hank', 'Isabel'],
+      imageUrl: 'assets/user.webp',
+      role: 'Student',
+    ),
+    UserProfile(
+      userId: '127',
+      name: 'Charlie Davis',
+      address: '202 Cedar St, City',
+      description: 'Language hobbyist.',
+      languages: ['Russian', 'Persian'],
+      friends: ['Jack', 'Karen'],
+      imageUrl: 'assets/user.webp',
+      role: 'Student',
     ),
   ];
 
@@ -43,9 +72,6 @@ class _UserListPageState extends State<UserListPage> {
         .toList();
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('User List'),
-      ),
       body: Column(
         children: [
           Padding(
@@ -54,6 +80,7 @@ class _UserListPageState extends State<UserListPage> {
               decoration: InputDecoration(
                 labelText: 'Search by name',
                 border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.search),
               ),
               onChanged: (value) {
                 setState(() {
@@ -96,41 +123,54 @@ class UserItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Card(
-          child: Column(
-            children: [
-              CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage(user.imageUrl),
-              ),
-              SizedBox(height: 8),
-              Text(
-                user.name,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 8),
-              Text(
-                'Languages: ${user.languages.join(', ')}',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                ),
-              ),
-              SizedBox(height: 8),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ChatPage(), // Direct to ChatPage
+          elevation: 4.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 30,
+                      backgroundImage: AssetImage(user.imageUrl),
                     ),
-                  );
-                },
-                child: Text('Chat'),
-              ),
-            ],
+                    SizedBox(width: 16),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          user.name,
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          'Languages: ${user.languages.join(', ')}',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          user.role,
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.blue,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -138,4 +178,3 @@ class UserItem extends StatelessWidget {
   }
 }
 
-// UserProfilePage and ChatPage are assumed to be defined elsewhere in your project
