@@ -67,21 +67,6 @@ class UserProfilePage extends StatelessWidget {
               ))
                   .toList(),
             ),
-            SizedBox(height: 10),
-            Text(
-              'Friends:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 5),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: userProfile.friends
-                  .map((friend) => Padding(
-                padding: const EdgeInsets.only(left: 10.0),
-                child: Text(friend, style: TextStyle(fontSize: 16)),
-              ))
-                  .toList(),
-            ),
             SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {

@@ -6,7 +6,7 @@ class UserProfile {
   final List<String> languages;
   final List<String> friends;
   final String imageUrl;
-  final String role;
+  String role;
 
   UserProfile({
     required this.userId,
@@ -23,9 +23,11 @@ class UserProfile {
     String ?newName,
     String ?newAddress,
     String ?newDescription,
+    String ?newRole,
   }) {
     if (newName != null) name = newName;
     if (newAddress != null) address = newAddress;
     if (newDescription != null) description = newDescription;
+    if (newRole != null) role = newRole;
   }
 }
