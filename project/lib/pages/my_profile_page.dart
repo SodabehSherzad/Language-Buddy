@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../classes/user_profile_class.dart';
+import '../models/user.dart';
 import 'edit_profile_page.dart';
 
 class ProfilePage extends StatefulWidget {

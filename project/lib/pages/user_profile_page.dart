@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../classes/user_profile_class.dart';
+import '../models/user.dart';
 import 'chat_page.dart';
 
 class UserProfilePage extends StatelessWidget {
